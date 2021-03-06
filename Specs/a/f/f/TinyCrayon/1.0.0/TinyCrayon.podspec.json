@@ -1,9 +1,7 @@
 {
   "name": "TinyCrayon",
   "version": "1.0.0",
-  "summary": "TinyCrayon is an easy way to create a UIViewController for interactive image cutout and masking.",
-  "description": "TinyCrayon is a mobile SDK that you can use to create a UIViewController for image cutout and masking. It provides three tools:\n* Quick Select Tool: It's a tool with auto edge detection and can help user to select a object in an image\n* Hari Brush Tool: It's a tool with soft image matting techniques which can help user to select hair and fur in an image\n* Brush Tool: It's a regular brush which user can use to draw on an image",
-  "homepage": "http://www.tinycrayon.com",
+  "summary": "TinyCrayon is an easy way to create a view for interactive image cutout and masking.",
   "license": {
     "type": "MIT"
   },
@@ -13,14 +11,32 @@
   "platforms": {
     "ios": "9.0"
   },
+  "homepage": "http://www.tinycrayon.com",
   "source": {
-    "git": "https://github.com/TinyCrayon/TinyCrayon.git",
-    "tag": "1.0.0"
+    "http": "https://github.com/TinyCrayon/TinyCrayon-iOS-SDK/releases/download/v1.0.0/TinyCrayon.zip",
+    "flatten": true
   },
-  "source_files": "TinyCrayon.framework/Headers/*.h",
-  "public_header_files": "TinyCrayon.framework/Headers/*.h",
-  "ios": {
-    "vendored_frameworks": "Tinycrayon.framework"
-  },
-  "module_name": "TinyCrayon"
+  "subspecs": [
+    {
+      "name": "TCCore",
+      "source_files": "TCCore.framework/Headers/*.h",
+      "public_header_files": "TCCore.framework/Headers/*.h",
+      "ios": {
+        "vendored_frameworks": "TCCore.framework"
+      }
+    },
+    {
+      "name": "TCMask",
+      "source_files": "TCMask.framework/Headers/*.h",
+      "public_header_files": "TCMask.framework/Headers/*.h",
+      "ios": {
+        "vendored_frameworks": "TCMask.framework"
+      },
+      "dependencies": {
+        "TinyCrayon/TCCore": [
+
+        ]
+      }
+    }
+  ]
 }

@@ -12,7 +12,7 @@
     "Dhruv Mehta": "dhruv@outbound.io"
   },
   "source": {
-    "git": "https://github.com/outboundio/iOS.git",
+    "git": "https://github.com/outboundio/ios-sdk.git",
     "tag": "1.0.3"
   },
   "social_media_url": "https://twitter.com/OutboundIO",
